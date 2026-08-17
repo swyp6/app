@@ -50,6 +50,6 @@
   "private": true,
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": "eslint --fix",
-    "*.{js,jsx,ts,tsx,json,md,css}": "prettier --write"
+    "*.{js,jsx,ts,tsx,json,md,yml,yaml,css}": "prettier --write"
   }
 }
