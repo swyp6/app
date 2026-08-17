@@ -35,5 +35,8 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Generate Expo env types
+        run: printf '/// <reference types="expo/types" />\n' > expo-env.d.ts
+
       - name: Type check
         run: npx tsc --noEmit
