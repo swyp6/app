@@ -4,3 +4,14 @@
   width: 128px;
   height: 128px;
 }
+
+.glow {
+  background-image: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.35) 0%,
+    rgba(255, 255, 255, 0) 70%
+  );
+  border-radius: 50%;
+  width: 201px;
+  height: 201px;
+}

@@ -1,28 +1,31 @@
-import { version } from 'expo/package.json';
-import { Image } from 'expo-image';
-import { useColorScheme, StyleSheet } from 'react-native';
+import Ionicons from "@expo/vector-icons/Ionicons";
+import { version } from "expo/package.json";
+import { StyleSheet } from "react-native";
 
-import { ThemedText } from './themed-text';
-import { ThemedView } from './themed-view';
+import { ThemedText } from "./themed-text";
+import { ThemedView } from "./themed-view";
 
-import { Spacing } from '@/constants/theme';
+import { Spacing } from "@/constants/theme";
+import { useTheme } from "@/hooks/use-theme";
 
 export function WebBadge() {
-  const scheme = useColorScheme();
+  const theme = useTheme();
 
   return (
     <ThemedView style={styles.container}>
-      <ThemedText type="code" themeColor="textSecondary" style={styles.versionText}>
-        v{version}
+      <ThemedView style={styles.badge}>
+        <Ionicons name="globe-outline" size={14} color={theme.textSecondary} />
+        <ThemedText type="code" themeColor="textSecondary">
+          swyp6-team8-app
+        </ThemedText>
+      </ThemedView>
+      <ThemedText
+        type="code"
+        themeColor="textSecondary"
+        style={styles.versionText}
+      >
+        expo v{version}
       </ThemedText>
-      <Image
-        source={
-          scheme === 'dark'
-            ? require('@/assets/images/expo-badge-white.png')
-            : require('@/assets/images/expo-badge.png')
-        }
-        style={styles.badgeImage}
-      />
     </ThemedView>
   );
 }
@@ -30,14 +33,15 @@ export function WebBadge() {
 const styles = StyleSheet.create({
   container: {
     padding: Spacing.five,
-    alignItems: 'center',
+    alignItems: "center",
     gap: Spacing.two,
   },
-  versionText: {
-    textAlign: 'center',
+  badge: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: Spacing.one,
   },
-  badgeImage: {
-    width: 123,
-    aspectRatio: 123 / 24,
+  versionText: {
+    textAlign: "center",
   },
 });
